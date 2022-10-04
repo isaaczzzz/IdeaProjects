@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nosuch.mapper.UserMapper">
+
+    <select id="select" resultType="com.nosuch.pojo.User">
+        select * FROM tb_user where username = #{username} and password = #{password};
+    </select>
+</mapper>

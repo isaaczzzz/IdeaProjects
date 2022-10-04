@@ -1,0 +1,5 @@
+com\nosuch\mapper\UserMapper.class
+com\nosuch\web\RegisterServlet.class
+com\nosuch\web\LoginServlet.class
+com\nosuch\pojo\User.class
+com\nosuch\util\SqlSessionFactoryUtil.class
