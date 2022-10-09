@@ -7,12 +7,23 @@
     <!--2. 配置Bean-->
     <!--id为给bean起的名字-->
     <!--class表示bean定义类型-->
-    <bean id="bookDao" class="dao.impl.BookDaoImpl"/>
+    <!--name: 别名-->
+    <!--scope: bean作用范围(单例/非单例，默认单例)-->
+    <bean id="bookDao" name="dao bookDao2" class="dao.impl.BookDaoImpl" scope="prototype">
+        <!--配置简单数据类型：使用value属性-->
+        <property name="connectionNum" value="10"/>
+        <property name="databaseName" value="mysql"/>
+    </bean>
+
+    <bean id="userDao" class="dao.impl.UserDaoImpl"/>
+
+
     <bean id="bookService" class="service.impl.BookServiceImpl">
         <!--7. 配置service与dao关系-->
         <!--property标签：配置当前bean属性
         name: 表示配置哪一个具体的属性
         ref: 表示参照哪一个bean-->
         <property name="bookDao" ref="bookDao"/>
+        <property name="userDao" ref="userDao"/>
     </bean>
 </beans>
