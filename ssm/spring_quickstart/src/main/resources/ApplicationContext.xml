@@ -18,12 +18,15 @@
     <bean id="userDao" class="dao.impl.UserDaoImpl"/>
 
 
-    <bean id="bookService" class="service.impl.BookServiceImpl">
-        <!--7. 配置service与dao关系-->
-        <!--property标签：配置当前bean属性
+    <!--<bean id="bookService" class="service.impl.BookServiceImpl">
+        &lt;!&ndash;7. 配置service与dao关系&ndash;&gt;
+        &lt;!&ndash;property标签：配置当前bean属性
         name: 表示配置哪一个具体的属性
-        ref: 表示参照哪一个bean-->
+        ref: 表示参照哪一个bean&ndash;&gt;
         <property name="bookDao" ref="bookDao"/>
         <property name="userDao" ref="userDao"/>
-    </bean>
+    </bean>-->
+
+    <!--自动装配-->
+    <bean id="bookService" class="service.impl.BookServiceImpl" autowire="byType"/> <!--需要setter-->
 </beans>
