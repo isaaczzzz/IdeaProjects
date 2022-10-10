@@ -27,5 +27,6 @@
         <property name="userDao" ref="userDao"/>
     </bean>-->
 
-    <bean id="bookService" class="service.impl.BookServiceImpl" autowire="byType"/>
+    <!--自动装配-->
+    <bean id="bookService" class="service.impl.BookServiceImpl" autowire="byType"/> <!--需要setter-->
 </beans>
