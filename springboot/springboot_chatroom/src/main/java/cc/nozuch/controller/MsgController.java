@@ -9,19 +9,18 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
 @RestController
-@RequestMapping("/msgs")
 public class MsgController {
 
     @Autowired
     private MsgService msgService;
 
-    @GetMapping("{id}")
-    public Msg getById(@PathVariable Integer id) {
-        return msgService.getById(id);
+    @GetMapping("/get")
+    public Msg get() {
+        return msgService.getNewestMsg();
     }
 
-    @PostMapping("{message}")
-    public Boolean save(@PathVariable String message) {
+    @PostMapping("/send")
+    public String save(@RequestParam("message") String message) {
         //获取当前时间
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String time = sdf.format(new java.util.Date());
@@ -35,6 +34,9 @@ public class MsgController {
         Msg msg = new Msg();
         msg.setMessage(message);
         msg.setTime(timestamp);
-        return msgService.save(msg);
+        boolean flag = msgService.save(msg);
+        if(flag)
+            return "发送成功";
+        else return "发送失败";
     }
 }

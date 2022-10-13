@@ -8,4 +8,8 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class MsgServiceImpl extends ServiceImpl<MsgMapper, Msg> implements MsgService {
+    @Override
+    public Msg getNewestMsg() {
+        return this.baseMapper.getNewestMsg();
+    }
 }

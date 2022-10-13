@@ -1,6 +1,7 @@
 server:
   port: 80
-
+  servlet:
+    context-path: /chatroom
 spring:
   datasource:
     druid:
@@ -8,3 +9,6 @@ spring:
       url: jdbc:mysql://106.55.28.228:3306/db1?serverTimezone=UTC
       username: root
       password: 12345678
+
+mybatis-plus:
+  mapper-locations: classpath:cc/nozuch/mapper/**.xml
