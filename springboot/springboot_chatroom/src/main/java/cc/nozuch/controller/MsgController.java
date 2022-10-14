@@ -14,12 +14,12 @@ public class MsgController {
     @Autowired
     private MsgService msgService;
 
-    @GetMapping("/get")
+    @RequestMapping("/get")
     public Msg get() {
         return msgService.getNewestMsg();
     }
 
-    @PostMapping("/send")
+    @RequestMapping("/send")
     public String save(@RequestParam("message") String message) {
         //获取当前时间
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
